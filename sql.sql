@@ -19,6 +19,6 @@ grant all privileges  on *.*  to "eventuate"@'%' identified by 'root';
 CREATE DATABASE IF NOT EXISTS ftgo_accounting_service DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS ftgo_order_service DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS ftgo_kitchen_service DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
-CREATE DATABASE IF NOT EXISTS eventuate DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS ftgo_eventuate DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS ftgo_consumer_service DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS ftgo_restaurant_service DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
