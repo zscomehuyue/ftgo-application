@@ -5,6 +5,7 @@ build/
 *.log
 *.pid
 out
+nohup.out
 target
 .serverless
 *.pid
