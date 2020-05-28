@@ -1,7 +1,6 @@
 package net.chrisrichardson.ftgo.orderservice.web;
 
 
-import net.chrisrichardson.ftgo.orderservice.domain.Restaurant;
 import net.chrisrichardson.ftgo.orderservice.domain.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
