@@ -25,20 +25,29 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
 
   private SagaDefinition<CancelOrderSagaData> sagaDefinition;
 
-
+  /**
+   * FIXME 状态机，事件发生的逆序；
+   * FIXME 用状态图，描述状态间的相互转换；
+   */
   @PostConstruct
   public void initializeSagaDefinition() {
     sagaDefinition = step()
             .invokeParticipant(this::beginCancel)
+
+            //FIXME 该步骤是什么意思，是撤销弥补；
             .withCompensation(this::undoBeginCancel)
             .step()
+
             .invokeParticipant(this::beginCancelTicket)
             .withCompensation(this::undoBeginCancelTicket)
             .step()
+
             .invokeParticipant(this::reverseAuthorization)
             .step()
+
             .invokeParticipant(this::confirmTicketCancel)
             .step()
+
             .invokeParticipant(this::confirmOrderCancel)
             .build();
 

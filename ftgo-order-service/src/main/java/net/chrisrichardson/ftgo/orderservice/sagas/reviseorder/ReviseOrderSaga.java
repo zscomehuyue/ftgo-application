@@ -21,12 +21,18 @@ import javax.annotation.PostConstruct;
 
 import static io.eventuate.tram.commands.consumer.CommandWithDestinationBuilder.send;
 
+/**
+ * FIXME 修订订单
+ */
 public class ReviseOrderSaga implements SimpleSaga<ReviseOrderSagaData> {
 
   private Logger logger = LoggerFactory.getLogger(getClass());
 
   private SagaDefinition<ReviseOrderSagaData> sagaDefinition;
 
+  /**
+   * 修订订单的状态图
+   */
   @PostConstruct
   public void initializeSagaDefinition() {
     sagaDefinition = step()
@@ -34,13 +40,17 @@ public class ReviseOrderSaga implements SimpleSaga<ReviseOrderSagaData> {
             .onReply(BeginReviseOrderReply.class, this::handleBeginReviseOrderReply)
             .withCompensation(this::undoBeginReviseOrder)
             .step()
+
             .invokeParticipant(this::beginReviseTicket)
             .withCompensation(this::undoBeginReviseTicket)
             .step()
+
             .invokeParticipant(this::reviseAuthorization)
             .step()
+
             .invokeParticipant(this::confirmTicketRevision)
             .step()
+
             .invokeParticipant(this::confirmOrderRevision)
             .build();
   }
