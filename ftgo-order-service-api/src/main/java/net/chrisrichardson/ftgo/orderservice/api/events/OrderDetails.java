@@ -11,7 +11,6 @@ public class OrderDetails {
 
   private List<OrderLineItem> lineItems;
   private Money orderTotal;
-
   private long restaurantId;
   private long consumerId;
 

@@ -77,14 +77,12 @@ public class OrderService {
         return order;
     }
 
-
     private List<OrderLineItem> makeOrderLineItems(List<MenuItemIdAndQuantity> lineItems, Restaurant restaurant) {
         return lineItems.stream().map(li -> {
             MenuItem om = restaurant.findMenuItem(li.getMenuItemId()).orElseThrow(() -> new InvalidMenuItemIdException(li.getMenuItemId()));
             return new OrderLineItem(li.getMenuItemId(), om.getName(), om.getPrice(), li.getQuantity());
         }).collect(toList());
     }
-
 
     public Optional<Order> confirmChangeLineItemQuantity(Long orderId, OrderRevision orderRevision) {
         return orderRepository.findById(orderId).map(order -> {
