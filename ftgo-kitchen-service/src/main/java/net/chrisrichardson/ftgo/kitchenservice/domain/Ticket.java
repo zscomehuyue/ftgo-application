@@ -157,7 +157,6 @@ public class Ticket {
                 return singletonList(new TicketCancelled());
             default:
                 throw new UnsupportedStateTransitionException(state);
-
         }
     }
 
@@ -168,7 +167,6 @@ public class Ticket {
                 return emptyList();
             default:
                 throw new UnsupportedStateTransitionException(state);
-
         }
     }
 
