@@ -72,6 +72,7 @@ public class OrderService {
         CreateOrderSagaState data = new CreateOrderSagaState(order.getId(), orderDetails);
         createOrderSagaManager.create(data, Order.class, order.getId());
 
+        //消息、state实例，order同一事务保存的，这种具体实现方式？从用户角度看，是完全分离的；
         meterRegistry.ifPresent(mr -> mr.counter("placed_orders").increment());
 
         return order;

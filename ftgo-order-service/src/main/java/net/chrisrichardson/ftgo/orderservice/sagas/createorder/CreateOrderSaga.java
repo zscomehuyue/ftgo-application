@@ -29,7 +29,11 @@ public class CreateOrderSaga implements SimpleSaga<CreateOrderSagaState> {
         this.sagaDefinition =
                          step()
 
-                                 //拒绝订单 TODO？创建订单为何包含拒绝的场景？？ 订单创建流程如何改成如下的步骤？
+                                 //拒绝订单
+                                 //TODO  创建订单为何包含拒绝的场景？？
+                                 //TODO  订单创建流程如何改成如下的步骤？
+                                 //TODO  如何映射成，状态机的相关方法：action 、withCompensation、invokeParticipant、onReply
+                                 //TODO  状态需要在哪些实体上增加；
                         .withCompensation(orderService.reject, CreateOrderSagaState::makeRejectOrderCommand)
                         .step()
 
