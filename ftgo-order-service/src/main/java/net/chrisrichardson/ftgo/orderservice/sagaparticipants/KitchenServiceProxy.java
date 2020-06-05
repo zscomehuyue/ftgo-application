@@ -11,6 +11,7 @@ public class KitchenServiceProxy {
           .forCommand(CreateTicket.class)
           .withChannel(KitchenServiceChannels.kitchenServiceChannel)
           .withReply(CreateTicketReply.class)
+          //可以返回多个？如果创建异常了那？需要清理数据？
           .build();
 
   public final CommandEndpoint<ConfirmCreateTicket> confirmCreate = CommandEndpointBuilder
