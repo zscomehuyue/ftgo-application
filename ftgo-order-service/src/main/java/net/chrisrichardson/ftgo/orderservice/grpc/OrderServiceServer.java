@@ -3,8 +3,6 @@ package net.chrisrichardson.ftgo.orderservice.grpc;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import net.chrisrichardson.ftgo.orderservice.api.web.CreateOrderRequest;
-import net.chrisrichardson.ftgo.orderservice.api.web.ReviseOrderRequest;
 import net.chrisrichardson.ftgo.orderservice.domain.Order;
 import net.chrisrichardson.ftgo.orderservice.domain.OrderService;
 import net.chrisrichardson.ftgo.orderservice.web.MenuItemIdAndQuantity;
@@ -16,6 +14,9 @@ import javax.annotation.PreDestroy;
 import java.io.IOException;
 
 import static java.util.stream.Collectors.toList;
+
+//import net.chrisrichardson.ftgo.orderservice.api.web.CreateOrderRequest;
+//import net.chrisrichardson.ftgo.orderservice.api.web.ReviseOrderRequest;
 
 public class OrderServiceServer {
     private static final Logger logger = LoggerFactory.getLogger(OrderServiceServer.class);
